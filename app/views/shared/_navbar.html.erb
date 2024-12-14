@@ -10,7 +10,9 @@
           <%= link_to '💼Ofertas', offers_path, class: 'nav-link', aria: { current: 'page' } %>
         </li>
         <% if user_signed_in? %>
-          
+        <li class="nav-item">
+          <%= button_to '🔌Log Out', destroy_user_session_path, class: "nav-link", method: :delete %>
+        </li>
           <% if current_user.isadmin? %>
           <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/admin/users/new">👥Create Account</a>
@@ -18,19 +20,16 @@
           <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/messages/index">🔔Messages</a>
           </li>
-          <li class="nav-item d-flex ms-auto">
-            <%= button_to '🔌Log Out', destroy_user_session_path, class: "nav-link", method: :delete %>
-          </li>
+         
           <%end%>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link' %>
-          </li>
+            <%= link_to 'Iniciar sesión', new_user_session_path, class:'nav-link'%></li>          </li>
           <% if User.count == 0%>
           <li class="nav-item">
             <%= link_to 'Registro', new_user_registration_path, class: 'nav-link' %>
           </li>
-          <%end%>
+          <% end %>
         <% end %>
       </ul>
       <form class="d-flex" role="search">
