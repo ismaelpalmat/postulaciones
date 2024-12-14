@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :news
+  get "messages/index"
+  
+  get "postulation/create/:offer_id", to: "postulation#create", as: "create_postulation"
+  get "postulation/check/:postulation_id", to: "postulation#check", as: "check_postulation"
+
+  get "postulation/destroy"
+  resources :offers
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,5 +19,9 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
+  namespace :admin do
+    resources :users, only: [:new, :create]
+  end
+
   root "offers#index"
 end

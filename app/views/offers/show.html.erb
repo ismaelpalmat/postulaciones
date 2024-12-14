@@ -1,0 +1,19 @@
+<%= render @offer %>
+
+<div>
+  <%= link_to "Back to offers", offers_path, class: 'btn btn-primary' %>
+  <% if user_signed_in? %>
+    <% if current_user.isadmin %>
+      <%= link_to "Edit this offer", edit_offer_path(@offer), class: "btn btn-primary" %> |
+      <%= button_to "Destroy this offer", @offer, method: :delete, class: "btn btn-danger" %>
+    <% elsif @postulation == nil %>
+      <p>
+        <a href="/postulation/create/<%=@offer.id%>">Postular</a>
+      </p>
+    <% else %>
+      <p>
+        <i class="badge text-bg-secondary">You already applied for this offer</i>
+      </p>
+    <% end %>
+  <% end %>
+</div>

@@ -10,12 +10,12 @@
 
   <div class="field">
     <%= f.label :avatar %><br />
-    <%= f.url_field :name, autocomplete: "Avatar: " %>
+    <%= f.url_field :avatar, autocomplete: "Avatar: " %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "Email: " %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
