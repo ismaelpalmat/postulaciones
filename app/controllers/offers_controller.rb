@@ -13,7 +13,8 @@ class OffersController < ApplicationController
     
     @postulation = Postulation.find_by(offer_id: offer_id,user_id: current_user.id)
   end
-
+ 
+  
   # GET /offers/new
   def new
     @offer = Offer.new

@@ -23,7 +23,7 @@
   <%= render 'shared/navbar' %>
   <!-- Mostrar mensajes de flash -->
   <% if flash[:notice] %>
-    <div class="alert alert-success">
+    <div class="alert alert-info">
       <%= flash[:notice] %>
     </div>
   <% elsif flash[:alert] %>
@@ -32,7 +32,7 @@
     </div>
   <% end %>
     <%= yield %>
-  <footer class="text-bg-primary p-3">
+  <footer class="text-white bg-primary p-4">
   <p>Postulaciones 2024. Todos los derechos reservados.</p>
   </footer>
     </div>
